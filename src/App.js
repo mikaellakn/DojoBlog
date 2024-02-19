@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import BlogDetails from './BlogDetails';
+import Create from './Create';
+import Home from './Home';
+import Nav from './Nav';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import NotFound from './NotFound';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <div className="App">
+          <Nav/>
+          <div className="content">
+            <Switch>
+              {/* the switch component makes sure 
+              only one route is showing at a time,
+              it makes the route start its search 
+              from top to bottom looking for the first match */}
+
+              <Route exact path='/'>
+                <Home/>
+              </Route>
+
+              <Route exact path='/create'>
+                <Create/>
+              </Route>
+
+              <Route path='/blogs/:id'> 
+                <BlogDetails/>
+              </Route>
+
+              <Route path='*'> 
+              {/* '*' means any other route */}
+                <NotFound/>
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      </Router>
   );
 }
 
