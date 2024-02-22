@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import useFetch from "./useFetch";
+import useFetch from "../helper/useFetch";
 import { useHistory } from 'react-router-dom';
 
 const BlogDetails = () => {

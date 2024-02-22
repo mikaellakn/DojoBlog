@@ -1,9 +1,9 @@
-import BlogDetails from './BlogDetails';
-import Create from './Create';
-import Home from './Home';
-import Nav from './Nav';
+import BlogDetails from '../components/BlogDetails';
+import Create from '../pages/CreateBlogPage';
+import Home from '../pages/HomePage';
+import Nav from '../components/Nav';
+import NotFound from '../pages/NotFoundPage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import NotFound from './NotFound';
 
 function App() {
   return (
