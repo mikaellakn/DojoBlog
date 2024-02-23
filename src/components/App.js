@@ -42,7 +42,7 @@ function App() {
                   <ProfilePage/>
                 </Route>
                 <Route exact path='/create'>
-                  <Create/>
+                  {token ? <Create/> : <LoginPage setToken={setToken} />}
                 </Route>
                 <Route path='/blogs/:id'>
                   <BlogDetails/>
