@@ -1,11 +1,13 @@
 import '../styles/login.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { loginUser, signupUser, userExists } from '../services/login';
 import { Link } from 'react-router-dom';
+import UserContext from '../components/UserInfo'; 
 
 const SignupPage = ({setNewToken}) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const {setName} = useContext(UserContext);
 
   // useEffect(() => {
   //   const token = localStorage.getItem('token');
@@ -22,7 +24,7 @@ const SignupPage = ({setNewToken}) => {
       password
     });
     
-    console.log(token);
+    setName(username);
 
     setNewToken(token);
     localStorage.setItem('newToken', token);
@@ -30,20 +32,18 @@ const SignupPage = ({setNewToken}) => {
 
   return ( 
     <div className="login-wrapper">
-      <h1>Sign In</h1>
+      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={e => setUsername(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="text"  onChange={e => setPassword(e.target.value)}/>
-        </label>
-        <div><button type="submit">Sign up</button></div>
+        <div className='form-field'>
+          <input placeholder='username' type="text" onChange={e => setUsername(e.target.value)} />
+        </div>
+        <div className='form-field'>
+          <input placeholder='password' type="text"  onChange={e => setPassword(e.target.value)}/>
+        </div>
+        <div className='btn-container'><button className='submit-btn' type="submit">Sign up</button></div>
       </form>
-      <div>
-        <p>have an account?</p>
+      <div className='email-help'>
+        <p>Already have an account? </p>
         <Link to="/login">Log in</Link>
       </div>
     </div>

@@ -2,4 +2,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.login-wrapper h1,
+.sign-up-alert{
+  color: #f1356d;
+}
+
+.login-wrapper .form-field,
+.btn-container,
+.email-help{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.login-wrapper .form-field input{
+  text-align: center;
+  padding: 4px;
+  width: 200px;
+  height: 28px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-container .submit-btn{
+  width: 80px;
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.email-help p{
+  margin-right: 10px;
 }
