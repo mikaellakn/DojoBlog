@@ -13,7 +13,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "api": "json-server data/demo.json -p 3333",
+    "api": "json-server src/data/demo.json -p 8002",
+    "tokens-api": "json-server src/data/tokens.json -p 8001",
+    "blogs-api": "json-server src/data/db.json -p 8000",
+
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

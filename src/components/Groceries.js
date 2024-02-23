@@ -9,16 +9,21 @@ const Groceries = () => {
   //value will be preserved for the lifetime of the component
 
   useEffect(()=> {
+
     mounted.current = true;
+
     if(list.length && !alert){
+      //no new item has been added
       return;
     }
+
     getList()
     .then(items => {
       if(mounted.current){
         setList(items)
       }
     })
+    
     return () => mounted.current = false;
   }, [alert, list])
 
