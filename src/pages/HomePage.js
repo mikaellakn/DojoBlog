@@ -1,5 +1,5 @@
-import BlogList from "../components/BlogList.js"
-import Groceries from "../components/Groceries.js"
+import BlogList from "../components/BlogListComp.js"
+import Groceries from "../components/GroceriesComp.js"
 import useFetch from "../helper/useFetch.js";
 
 const Home = () => {

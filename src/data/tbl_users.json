@@ -1,5 +1,5 @@
 {
-  "tokens": [
+  "users": [
     {
       "id": "80e0",
       "username": "mikaella",
@@ -27,6 +27,21 @@
       "id": "1676",
       "username": "margot",
       "password": "6767"
+    },
+    {
+      "id": "b47d",
+      "username": "elie",
+      "password": "a"
+    },
+    {
+      "id": "11dd",
+      "username": "Joseph",
+      "password": "mmm"
+    },
+    {
+      "id": "bb61",
+      "username": "f",
+      "password": "f"
     }
   ]
 }

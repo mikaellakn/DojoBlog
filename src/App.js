@@ -1,14 +1,17 @@
-import BlogDetails from '../components/BlogDetails';
-import Create from '../pages/CreateBlogPage';
-import Home from '../pages/HomePage';
-import Nav from '../components/Nav';
-import NotFound from '../pages/NotFoundPage';
-import LoginPage from '../pages/LoginPage';
-import SignupPage from '../pages/SignupPage';
-import ProfilePage from '../pages/ProfilePage';
+import BlogDetails from './components/BlogDetailsComp';
+import Create from './pages/CreateBlogPage';
+import Home from './pages/HomePage';
+import Nav from './components/NavbarComp';
+import NotFound from './pages/NotFoundPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import ProfilePage from './pages/ProfilePage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
-import { UserProvider } from './UserInfo';
+import { UserProvider } from './components/UserInfo';
+import {configureStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers';
 
 function App() {
   const [token, setToken] = useState();

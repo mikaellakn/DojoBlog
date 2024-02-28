@@ -8,15 +8,16 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
+    "redux": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "api": "json-server src/data/demo.json -p 8002",
-    "tokens-api": "json-server src/data/tokens.json -p 8001",
-    "blogs-api": "json-server src/data/db.json -p 8000",
-
+    "groceries-api": "json-server src/data/groceries.json -p 8002",
+    "users-api": "json-server src/data/tbl_users.json -p 8001",
+    "blogs-api": "json-server src/data/blogs.json -p 8000",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

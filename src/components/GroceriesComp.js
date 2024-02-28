@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {getList, setItem} from '../services/list';
+import {getList, setItem} from '../services/GroceriesSurface';
 
 const Groceries = () => {
   const [alert, setAlert] = useState(false);

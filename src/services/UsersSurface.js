@@ -1,9 +1,9 @@
 export function userExists(username){
-  const users = require('../data/tokens.json');
+  const users = require('../data/tbl_users.json');
   
   let i;
-  for( i=0; i<users.tokens.length; i++){
-    if(users.tokens[i].username === username)
+  for( i=0; i<users.users.length; i++){
+    if(users.users[i].username === username)
     return true;
   }
 
@@ -11,7 +11,7 @@ export function userExists(username){
 }
 
 export async function signupUser(credentials){
-  return fetch('http://localhost:8001/tokens',{
+  return fetch('http://localhost:8001/users',{
     method:'POST',
     headers:{
       'Content-Type': 'application/json'
@@ -19,12 +19,10 @@ export async function signupUser(credentials){
     body: JSON.stringify(credentials)
   })
   .then(data => data.json())
-
 }
 
 export async function loginUser(credentials){
-  return fetch('http://localhost:8001/tokens')
+  return fetch('http://localhost:8001/users')
   .then(data => data.json())
-
 }
 

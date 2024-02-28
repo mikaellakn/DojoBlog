@@ -1,6 +1,6 @@
 import '../styles/login.css';
 import { useState, useEffect, useContext } from 'react';
-import { loginUser, signupUser, userExists } from '../services/login';
+import { loginUser, signupUser, userExists } from '../services/UsersSurface';
 import { Link } from 'react-router-dom';
 import UserContext from '../components/UserInfo'; 
 
@@ -17,6 +17,7 @@ const SignupPage = ({setNewToken}) => {
   // });
 
   const handleSubmit = async e =>{
+    // debugger waits till function returns response
     e.preventDefault();
 
     const token = await signupUser({
