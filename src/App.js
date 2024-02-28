@@ -8,8 +8,6 @@ import SignupPage from './pages/SignupPage';
 import ProfilePage from './pages/ProfilePage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
-import { UserProvider } from './components/UserInfo';
-import { connect } from 'react-redux';
 
 function App() {
   const [token, setToken] = useState();
@@ -17,8 +15,7 @@ function App() {
 
   return (
       <Router>
-        <UserProvider>
-          <div className="App">
+        <div className="App">
               <Nav/>
               <div className="content">
                 <Switch>
@@ -54,7 +51,6 @@ function App() {
                 </Switch>
               </div>
             </div>
-        </UserProvider>
       </Router>
   );
 }

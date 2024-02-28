@@ -1,15 +1,13 @@
 import '../styles/login.css';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { loginUser, signupUser, userExists } from '../services/UsersSurface';
 import { Link } from 'react-router-dom';
-import UserContext from '../components/UserInfo';
 import { useDispatch } from 'react-redux';
 import { setUserName } from '../features/counter/userSlice';
 
 const SignupPage = ({setNewToken}) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const {setName} = useContext(UserContext);
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -28,8 +26,6 @@ const SignupPage = ({setNewToken}) => {
       password
     });
     
-    setName(username);
-
     dispatch(setUserName(username));
 
     setNewToken(token);

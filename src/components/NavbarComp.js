@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import UserContext from './UserInfo';
 import { useSelector } from 'react-redux';
 
 const Nav = () => {
-  const {name} = useContext(UserContext);
   const userName = useSelector((state) => state.user.user_name);
 
   return ( 
@@ -15,7 +12,7 @@ const Nav = () => {
       <Link to="/create">New Blog</Link>
       </div>
 
-      {name && 
+      {userName && 
       <Link to='/profile'>
         <div className='user-account'>
           <p>{userName}</p>
