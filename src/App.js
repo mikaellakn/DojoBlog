@@ -7,11 +7,12 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import ProfilePage from './pages/ProfilePage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import useToken from './components/useToken';
 import { useState } from 'react';
 
 function App() {
-  const [token, setToken] = useState();
-  const [newToken, setNewToken] = useState();
+  const {token, setToken} = useToken();
+  //const [newToken, setNewToken] = useState();
 
   return (
       <Router>
@@ -19,18 +20,11 @@ function App() {
               <Nav/>
               <div className="content">
                 <Switch>
-                  {/* the switch component makes sure
-                  only one route is showing at a time,
-                  it makes the route start its search
-                  from top to bottom looking for the first match */}
                   <Route exact path='/login'>
                   {token ? <Home/> : <LoginPage setToken={setToken} />}
                   </Route>
-                  {/* <Route exact path='/signup'>
-                    <SignupPage/>
-                  </Route> */}
                   <Route exact path='/signup'>
-                  {newToken ? <Home/> : <SignupPage setNewToken={setNewToken} />}
+                  {token ? <Home/> : <SignupPage setToken={setToken} />}
                   </Route>
                   <Route exact path='/'>
                   {token ? <Home/> : <LoginPage setToken={setToken} />}
@@ -39,7 +33,7 @@ function App() {
                     <ProfilePage/>
                   </Route>
                   <Route exact path='/create'>
-                    {(token || newToken) ? <Create/> : <LoginPage setToken={setToken} />}
+                    {token ? <Create/> : <LoginPage setToken={setToken} />}
                   </Route>
                   <Route path='/blogs/:id'>
                     <BlogDetails/>

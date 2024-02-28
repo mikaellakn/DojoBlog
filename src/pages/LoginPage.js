@@ -11,29 +11,19 @@ const LoginPage = ({setToken}) => {
   const [password, setPassword] = useState();
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   if (token) {
-  //     setToken(token);
-  //   }
-  // });
   
   const handleSubmit = async e => {
     e.preventDefault();
 
-    if(userExists(username)){
-      const token = await loginUser({
-        username,
-        password
-      });
+    const token = await loginUser({
+      username,
+      password
+    })
 
+    if(token){
       dispatch(setUserName(username));
-
       setToken(token);
-      localStorage.setItem('token', token);
-    }
-    else{
+    }else{
       setAlert(true);
     }
   }

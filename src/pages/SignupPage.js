@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUserName } from '../features/counter/userSlice';
 
-const SignupPage = ({setNewToken}) => {
+const SignupPage = ({setToken}) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const dispatch = useDispatch();
@@ -24,12 +24,12 @@ const SignupPage = ({setNewToken}) => {
     const token = await signupUser({
       username,
       password
-    });
-    
-    dispatch(setUserName(username));
+    })
 
-    setNewToken(token);
-    localStorage.setItem('newToken', token);
+    if(token){
+      dispatch(setUserName(username));
+      setToken(token);
+    }
   }
 
   return ( 

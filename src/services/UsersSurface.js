@@ -1,17 +1,11 @@
 export function userExists(username){
   const users = require('../data/tbl_users.json');
-  
-  let i;
-  for( i=0; i<users.users.length; i++){
-    if(users.users[i].username === username)
-    return true;
-  }
-
-  return false;
+  const user = users.users.find(user => user.username === username);
+  return user || null;
 }
 
 export async function signupUser(credentials){
-  return fetch('http://localhost:8001/users',{
+  fetch('http://localhost:8001/users',{
     method:'POST',
     headers:{
       'Content-Type': 'application/json'
@@ -19,10 +13,11 @@ export async function signupUser(credentials){
     body: JSON.stringify(credentials)
   })
   .then(data => data.json())
+
+  return loginUser(credentials);
 }
 
-export async function loginUser(credentials){
-  return fetch('http://localhost:8001/users')
-  .then(data => data.json())
+export async function loginUser({username, password}){
+  return userExists(username);
 }
 
