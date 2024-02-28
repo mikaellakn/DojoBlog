@@ -3,12 +3,15 @@ import { useContext, useEffect, useState } from 'react';
 import { loginUser,signupUser, userExists } from '../services/UsersSurface';
 import { Link } from 'react-router-dom';
 import UserContext from '../components/UserInfo'; 
+import { useDispatch } from 'react-redux';
+import { setName } from './actions';
 
 const LoginPage = ({setToken}) => {
   const [alert, setAlert] = useState(false);
   const [username, setUsername] = useState();
   const {setName} = useContext(UserContext);
   const [password, setPassword] = useState();
+  const dispatch = useDispatch();
 
   // useEffect(() => {
   //   const token = localStorage.getItem('token');
@@ -26,7 +29,8 @@ const LoginPage = ({setToken}) => {
         password
       });
 
-      setName(username);
+      //setName(username);
+      dispatch(setUsername(username));
 
       setToken(token);
       localStorage.setItem('token', token);

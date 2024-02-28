@@ -9,19 +9,15 @@ import ProfilePage from './pages/ProfilePage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
 import { UserProvider } from './components/UserInfo';
-import {configureStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducer from './reducers';
+
 
 function App() {
   const [token, setToken] = useState();
   const [newToken, setNewToken] = useState();
 
-
   return (
       <Router>
-        <UserProvider>
-          <div className="App">
+        <div className="App">
             <Nav/>
             <div className="content">
               <Switch>
@@ -57,7 +53,6 @@ function App() {
               </Switch>
             </div>
           </div>
-        </UserProvider>
       </Router>
   );
 }

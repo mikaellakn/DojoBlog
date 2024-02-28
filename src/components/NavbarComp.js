@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import UserContext from './UserInfo';
+import { useSelector } from 'react-redux';
 
 const Nav = () => {
-  const {name} = useContext(UserContext);
+  //const {name} = useContext(UserContext);
+  const name = useSelector(state => state.name);
 
   return ( 
     <nav className="navbar">
