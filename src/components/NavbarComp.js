@@ -4,8 +4,8 @@ import UserContext from './UserInfo';
 import { useSelector } from 'react-redux';
 
 const Nav = () => {
-  //const {name} = useContext(UserContext);
-  const name = useSelector(state => state.name);
+  const {name} = useContext(UserContext);
+  const userName = useSelector((state) => state.user.user_name);
 
   return ( 
     <nav className="navbar">
@@ -18,7 +18,7 @@ const Nav = () => {
       {name && 
       <Link to='/profile'>
         <div className='user-account'>
-          <p>{name}</p>
+          <p>{userName}</p>
         </div>
       </Link>}
 

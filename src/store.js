@@ -1,8 +1,10 @@
-import { configureStore } from "@redux/toolkit";
-import nameReducer from "./reducers/reducers";
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from './features/counter/userSlice';
+import counterReducer from "./features/counter/counterSlice"
 
-function configureStore(state = {name: ''}) {
-  return createStore(nameReducer,state);
-}
-
-export default configureStore;
+export default configureStore({
+  reducer: {
+    user: userReducer,
+    counter: counterReducer,
+  },
+})
