@@ -1,4 +1,4 @@
-import { configureStore } from "redux";
+import { configureStore } from "@redux/toolkit";
 import nameReducer from "./reducers/reducers";
 
 function configureStore(state = {name: ''}) {

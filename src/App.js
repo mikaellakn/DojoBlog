@@ -9,7 +9,7 @@ import ProfilePage from './pages/ProfilePage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { setName } from './actions/actions';
+import { setName } from './actions/actions.js';
 
 function App() {
   const [token, setToken] = useState();
