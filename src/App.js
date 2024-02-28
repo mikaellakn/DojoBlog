@@ -8,8 +8,8 @@ import SignupPage from './pages/SignupPage';
 import ProfilePage from './pages/ProfilePage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
-import { UserProvider } from './components/UserInfo';
-
+import { connect } from 'react-redux';
+import { setName } from './actions/actions';
 
 function App() {
   const [token, setToken] = useState();
@@ -57,4 +57,13 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch => ({
+  setName: () => dispatch(setName)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
